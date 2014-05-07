@@ -5,3 +5,10 @@
  *
  *
  */
+add_filter( 'sec_modular_compact_archives', 'compact_view_for_location_archives' );
+function compact_view_for_location_archives() {
+	if ( is_tax( gb_get_location_tax_slug() ) ) { // only locations
+		return TRUE;
+	}
+	return FALSE;
+}
